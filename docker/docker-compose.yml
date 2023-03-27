@@ -1,0 +1,25 @@
+version: '3'
+services:
+ 
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    links:
+      - elasticsearch
+ 
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+
+  dejavu:
+    image: appbaseio/dejavu:3.2.3
+    container_name: dejavu
+    ports:
+      - '1358:1358'
+    links:
+      - elasticsearch

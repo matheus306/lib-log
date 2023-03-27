@@ -1,0 +1,13 @@
+# Arquivos binários
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Arquivos compilados
+*.o
+*.a
+
+# Dependências geradas pelo Go
+/bin/
+/vendor/
